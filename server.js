@@ -27,11 +27,9 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use((req, res, next) => {
-	
-	res.render('maintenance.hbs');
-
-});
+// app.use((req, res, next) => {
+// 	res.render('maintenance.hbs');
+// });
 
 hbs.registerHelper('screamIt', (text) => {
 	return text.toUpperCase()
@@ -61,6 +59,13 @@ app.get('/bad', (req, res) => {
 	});
 });
 
+app.get('/portfolio', (req, res) => {
+	res.render('portfolio.hbs', {
+		title: "Portfolio"
+	});
+});
+
+/* Dynamic Port */
 app.listen(port, () => {
 	console.log(`Server is up on port ${port}`);
 });
